@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Contact Form</title>
+</head>
+
+
+<body style="background-color:rgb(147, 236, 174);">
+    <h1 style="text-align: center;">Contact Form</h1>
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <div class="flash">{{ message }}</div>
+
+    </style>
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %} {% endwith %} {% for message in form.name.errors %}
+    <div>{{ message }}</div>
+    {% endfor %} {% for message in form.email.errors %}
+    <div>{{ message }}</div>
+    {% endfor %}
+
+    <form action=" " method="Post">
+        <fieldset>
+
+            {{ form.hidden_tag() }}
+
+            <div style=font-size:25px; font-weight:bold; margin-left:150px;>
+                {{ form.name.label }} <br> {{ form.name }}
+                <br> {{ form.Age.label }}<br> {{ form.Age }}
+                <br> {{ form.Gender.label }}<br> {{ form.Gender}}
+                <br> {{ form.email.label }}<br> {{ form.email }}
+                <br> {{ form.mobno.label }}<br> {{ form.mobno }}
+                <br> {{ form.language.label }}<br> {{ form.language }}
+                <br> {{ form.message.label }} <br> {{ form.message }}
+
+                <br> {{ form.submit }}
+
+                <style>
+                    input[type=text],
+                    select {
+                        width: 100%;
+                        padding: 12px 20px;
+                        margin: 8px 0;
+                        display: inline-block;
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                        box-sizing: border-box;
+                    }
+                    
+                    input[type=submit] {
+                        width: 100%;
+                        background-color: powderblue;
+                        color: white;
+                        padding: 14px 20px;
+                        margin: 8px 0;
+                        border: none;
+                        border-radius: 4px;
+                        cursor: pointer;
+                    }
+                    
+                    input[type=submit]:hover {
+                        background-color: #4CAF50;
+                    }
+                    
+                    div {
+                        border-radius: 5px;
+                        background-color: #f2f2f2;
+                        padding: 20px;
+                    }
+                </style>
+            </div>
+
+        </fieldset>
+    </form>
+
+
+</body>
+
+</html>
